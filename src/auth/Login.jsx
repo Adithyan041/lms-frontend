@@ -21,7 +21,7 @@ export default function Login() {
       console.log("LOGIN RESPONSE 👉", res.data);
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh", res.data.refresh);
-
+      localStorage.setItem("role", res.data.role);
       toast.success("Login successful ", {
         position: "top-center",
         autoClose: 2000,
