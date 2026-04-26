@@ -15,7 +15,7 @@ import ManageCourse from "./pages/ManageCourse";
 import AddLesson from "./pages/AddLesson";
 import EditLesson from "./pages/EditLesson";
 import LessonPlayer from "./pages/LessonPlayer";
-import MyEnrollments from "./pages/Myenrollments";
+import MyEnrollments from "./pages/MyEnrollments";
 import AdminCourses from "./pages/AdminCourses";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminUsers from "./pages/AdminUsers";
