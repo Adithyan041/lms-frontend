@@ -6,12 +6,17 @@ export default function AdminUsers() {
   const [students, setStudents] = useState([]);
   const [instructors, setInstructors] = useState([]);
 
-  useEffect(() => {
-    api.get("/admin/users/").then((res) => {
+useEffect(() => {
+  const token = localStorage.getItem("access");
+  if (!token) return;
+
+  api.get("/admin/users/")
+    .then((res) => {
       setStudents(res.data.students);
       setInstructors(res.data.instructors);
-    });
-  }, []);
+    })
+    .catch((err) => console.log(err));
+}, []);
 
   return (
     <>

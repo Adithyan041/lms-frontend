@@ -32,9 +32,16 @@ ChartJS.register(
 export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
 
-  useEffect(() => {
-    api.get("/admin/stats/").then((res) => setStats(res.data));
-  }, []);
+useEffect(() => {
+  const token = localStorage.getItem("access");
+
+  // if token not ready, don't call API
+  if (!token) return;
+
+  api.get("/admin/stats/")
+    .then((res) => setStats(res.data))
+    .catch((err) => console.log(err));
+}, []);
 
   if (!stats) return <Loading text="Loading..." />
 

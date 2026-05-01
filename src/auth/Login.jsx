@@ -33,7 +33,7 @@ export default function Login() {
         if (role === "instructor") {
           navigate("/instructor/dashboard");
         } else if (role === "admin") {
-          navigate("/admin"); // or custom admin dashboard
+          navigate("/admin/dashboard"); // or custom admin dashboard
         } else {
           navigate("/dashboard"); // student
         }
