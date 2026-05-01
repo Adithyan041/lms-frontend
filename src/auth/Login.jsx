@@ -21,14 +21,14 @@ export default function Login() {
       console.log("LOGIN RESPONSE 👉", res.data);
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh", res.data.refresh);
-      localStorage.setItem("role", res.data.user.role);
+      localStorage.setItem("role", res.data.role);
       toast.success("Login successful ", {
         position: "top-center",
         autoClose: 2000,
       });
 
       setTimeout(() => {
-        const role = res.data.user.role;
+        const role = res.data.role;
 
         if (role === "instructor") {
           navigate("/instructor/dashboard");
