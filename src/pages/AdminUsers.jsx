@@ -10,7 +10,11 @@ useEffect(() => {
   const token = localStorage.getItem("access");
   if (!token) return;
 
-  api.get("/admin/users/")
+  api.get("/admin/users/", {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+})
     .then((res) => {
       setStudents(res.data.students);
       setInstructors(res.data.instructors);

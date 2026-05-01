@@ -35,10 +35,13 @@ export default function AdminDashboard() {
 useEffect(() => {
   const token = localStorage.getItem("access");
 
-  // if token not ready, don't call API
   if (!token) return;
 
-  api.get("/admin/stats/")
+  api.get("/admin/stats/", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
     .then((res) => setStats(res.data))
     .catch((err) => console.log(err));
 }, []);
