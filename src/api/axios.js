@@ -26,9 +26,13 @@ api.interceptors.response.use(
 
       try {
         const refresh = localStorage.getItem("refresh");
-
+        if (!refresh) {
+          localStorage.clear();
+          window.location.href = "/login";
+          return Promise.reject(error);
+        }
         const res = await axios.post(
-          "http://127.0.0.1:8000/api/token/refresh/",
+          "token/refresh/",
           { refresh }
         );
 
