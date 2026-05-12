@@ -13,12 +13,18 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  console.log("LOGIN FUNCTION STARTED");
 
+  e.preventDefault();
+
+  console.log("FORM PREVENTED");
+
+  setLoading(true);
+
+  console.log("LOADING TRUE");
     try {
+      console.log("SENDING LOGIN REQUEST");
       const res = await api.post("auth/login/", { username, password });
-      console.log("LOGIN RESPONSE 👉", res.data);
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh", res.data.refresh);
       localStorage.setItem("role", res.data.role);
@@ -26,6 +32,7 @@ export default function Login() {
         position: "top-center",
         autoClose: 2000,
       });
+      console.log("LOGIN RESPONSE 👉", res.data);
 
       setTimeout(() => {
         const role = res.data.role;
