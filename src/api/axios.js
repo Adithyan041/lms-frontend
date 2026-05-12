@@ -32,7 +32,7 @@ api.interceptors.response.use(
           return Promise.reject(error);
         }
         const res = await axios.post(
-          "token/refresh/",
+           "https://lms-backend-t6tc.onrender.com/api/token/refresh/",
           { refresh }
         );
 
